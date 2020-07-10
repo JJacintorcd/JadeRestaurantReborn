@@ -1,13 +1,13 @@
-﻿using Recodme.Rd.JadeRest.BusinessLayer.OperationResults;
-using Recodme.Rd.JadeRest.DataAccessLayer;
-using Recodme.Rd.JadeRest.DataLayer;
+﻿using Recodme.Rd.JadeRest.BusinessLayer.BObjects.MenuBO.OperationResults;
+using vRecodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO;
+using Recodme.Rd.JadeRest.DataLayer.MenuData;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 
-namespace Recodme.Rd.JadeRest.BusinessLayer
+namespace Recodme.Rd.JadeRest.BusinessLayer.BObjects.MenuBO
 {
     public class DietaryRestrictionBusinessObject
     {

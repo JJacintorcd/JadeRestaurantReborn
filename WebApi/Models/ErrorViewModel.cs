@@ -1,6 +1,6 @@
 using System;
 
-namespace Recodme.Rd.JadeRest.WebApi.Models
+namespace Recodme.Rd.JadeRest.WebApi.Models.MenuViewModels
 {
     public class ErrorViewModel
     {

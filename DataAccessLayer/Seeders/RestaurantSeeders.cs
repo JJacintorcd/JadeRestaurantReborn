@@ -1,10 +1,11 @@
-﻿using Recodme.Rd.JadeRest.DataAccessLayer.Contexts;
+﻿using vRecodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO.Contexts;
 using Recodme.Rd.JadeRest.DataLayer;
+using Recodme.Rd.JadeRest.DataLayer.MenuData;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Recodme.Rd.JadeRest.DataAccessLayer.Seeders
+namespace vRecodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO.Seeders
 {
     public static class RestaurantSeeder
     {

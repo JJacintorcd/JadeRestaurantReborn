@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
-using Recodme.Rd.JadeRest.BusinessLayer;
+using Recodme.Rd.JadeRest.BusinessLayer.BObjects.MenuBO;
 using Recodme.Rd.JadeRest.DataLayer;
-using Recodme.Rd.JadeRest.WebApi.Models;
+using Recodme.Rd.JadeRest.WebApi.Models.MenuViewModels;
 
-namespace Recodme.Rd.JadeRest.WebApi.Controllers
+namespace Recodme.Rd.JadeRest.WebApi.Controllers.MenuControllers
 {
     [Route("api/[controller]")]
     [ApiController]

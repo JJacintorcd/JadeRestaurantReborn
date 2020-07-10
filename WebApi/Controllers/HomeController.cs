@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Recodme.Rd.JadeRest.WebApi.Models;
+using Recodme.Rd.JadeRest.WebApi.Models.MenuViewModels;
 
-namespace Recodme.Rd.JadeRest.WebApi.Controllers
+namespace Recodme.Rd.JadeRest.WebApi.Controllers.MenuControllers
 {
     public class HomeController : Controller
     {

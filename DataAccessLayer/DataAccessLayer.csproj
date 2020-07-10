@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>Recodme.Rd.JadeRest.DataAccess</AssemblyName>
-    <RootNamespace>Recodme.Rd.JadeRest.DataAccessLayer</RootNamespace>
+    <RootNamespace>Recodme.Rd.JadeRest.DataAccessLayer.DAOObjects.MenuDAO</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,6 +29,11 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DAObjects\UserDAO\" />
+    <Folder Include="DAObjects\RestaurantDAO\" />
   </ItemGroup>
 
 </Project>

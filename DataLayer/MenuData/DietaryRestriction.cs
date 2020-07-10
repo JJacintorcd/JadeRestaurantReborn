@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Recodme.Rd.JadeRest.DataLayer
+namespace Recodme.Rd.JadeRest.DataLayer.MenuData
 {
     public class DietaryRestriction : NamedEntity
     {

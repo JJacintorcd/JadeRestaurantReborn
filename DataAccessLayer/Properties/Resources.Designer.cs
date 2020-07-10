@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Recodme.Rd.JadeRest.DataAccessLayer.Properties {
+namespace vRecodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Recodme.Rd.JadeRest.DataAccessLayer.Properties {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Recodme.Rd.JadeRest.DataAccessLayer.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("vRecodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

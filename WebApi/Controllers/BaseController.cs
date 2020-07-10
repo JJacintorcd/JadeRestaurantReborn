@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace Recodme.Rd.JadeRest.WebApi.Controllers
+namespace Recodme.Rd.JadeRest.WebApi.Controllers.MenuControllers
 {
     public abstract class BaseController : ControllerBase
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Recodme.Rd.JadeRest.BusinessLayer.OperationResults
+namespace Recodme.Rd.JadeRest.BusinessLayer.BObjects.MenuBO.OperationResults
 {
     public class OperationResult<T> : OperationResult
     {

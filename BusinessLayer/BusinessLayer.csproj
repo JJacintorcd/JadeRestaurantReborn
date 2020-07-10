@@ -2,12 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>Recodme.Rd.JadeRest.BusinessLayer</RootNamespace>
-    <AssemblyName>Recodme.Rd.JadeRest.BusinessLayer</AssemblyName>
+    <RootNamespace>Recodme.Rd.JadeRest.BusinessLayer.BObjects.MenuBO</RootNamespace>
+    <AssemblyName>Recodme.Rd.JadeRest.BusinessLayer.BObjects.MenuBO</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="BObjects\UserBO\" />
+    <Folder Include="BObjects\RestaurantBO\" />
   </ItemGroup>
 
 </Project>

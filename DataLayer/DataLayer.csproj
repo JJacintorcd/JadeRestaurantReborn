@@ -7,4 +7,9 @@
     <AssemblyName>Recodme.Rd.JadeRest.DataLayer</AssemblyName>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="UserData\" />
+    <Folder Include="RestaurantData\" />
+  </ItemGroup>
+
 </Project>
