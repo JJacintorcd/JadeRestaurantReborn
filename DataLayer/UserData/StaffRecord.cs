@@ -1,9 +1,9 @@
 ﻿using Recodme.Rd.JadeRest.DataLayer.Base;
+using Recodme.Rd.JadeRest.DataLayer.RestaurantData;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace Recodme.Rd.JadeRest.DataLayer.UserData
 {
@@ -47,28 +47,28 @@ namespace Recodme.Rd.JadeRest.DataLayer.UserData
         public Guid PersonId { get; set; }
         public virtual Person Person { get; set; }
 
-        //[ForeignKey("Restaurant")]
-        //public Guid RestaurantId { get; set; }
-        //public virtual Restaurant Restaurant { get; set; }
+        [ForeignKey("Restaurant")]
+        public Guid RestaurantId { get; set; }
+        public virtual Restaurant Restaurant { get; set; }
 
-        //public virtual ICollection<StaffTitle> StaffTitles { get; set; }
+        public virtual ICollection<StaffTitle> StaffTitles { get; set; }
 
 
 
-        public StaffRecord(DateTime beginDate, DateTime endDate, Guid personId/*, Guid restaurantId*/)
+        public StaffRecord(DateTime beginDate, DateTime endDate, Guid personId, Guid restaurantId)
         {
             _beginDate = beginDate;
             _endDate = endDate;
             PersonId = personId;
-            //RestaurantId = restaurantId;
+            RestaurantId = restaurantId;
         }
 
-        public StaffRecord(Guid id, DateTime createdAt, DateTime updatedAt, bool isDeleted, DateTime beginDate, DateTime endDate, Guid personId/*, Guid restaurantId*/) : base(id, createdAt, updatedAt, isDeleted)
+        public StaffRecord(Guid id, DateTime createdAt, DateTime updatedAt, bool isDeleted, DateTime beginDate, DateTime endDate, Guid personId, Guid restaurantId) : base(id, createdAt, updatedAt, isDeleted)
         {
             _beginDate = beginDate;
             _endDate = endDate;
             PersonId = personId;
-            //RestaurantId = restaurantId;
+            RestaurantId = restaurantId;
         }
     }
 }
