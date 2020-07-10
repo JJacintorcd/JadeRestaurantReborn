@@ -61,11 +61,29 @@ namespace Recodme.Rd.JadeRest.DataAccessLayer.DAOObjects.MenuDAO.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Server=RECODME-JOAOJ\SQLEXPRESS;Database=JadeRestaurante;Trusted_Connection=true;.
+        ///   Looks up a localized string similar to Server=RECODME-AMARTIM\SQLEXPRESS;Database=JadeRestaurante;Trusted_Connection=true;.
         /// </summary>
         public static string ConnectionString {
             get {
                 return ResourceManager.GetString("ConnectionString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server=RECODME-AMARTIM\SQLEXPRESS;Database=JadeRestaurante;Trusted_Connection=true;.
+        /// </summary>
+        public static string ConnectionStringAntonio {
+            get {
+                return ResourceManager.GetString("ConnectionStringAntonio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server=RECODME-JOAOJ\SQLEXPRESS;Database=JadeRestaurante;Trusted_Connection=true;.
+        /// </summary>
+        public static string ConnectionStringJacinto {
+            get {
+                return ResourceManager.GetString("ConnectionStringJacinto", resourceCulture);
             }
         }
     }
