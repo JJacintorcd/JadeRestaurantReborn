@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using vRecodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO.Contexts;
+using Recodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO.Contexts;
 using Recodme.Rd.JadeRest.DataLayer.MenuData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace vRecodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO
+namespace Recodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO
 {
     public class DietaryRestrictionDataAccessObject
     {

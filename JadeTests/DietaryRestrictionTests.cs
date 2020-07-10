@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Recodme.Rd.JadeRest.BusinessLayer.BObjects.MenuBO;
-using vRecodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO.Seeders;
+using Recodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO.Seeders;
 using Recodme.Rd.JadeRest.DataLayer;
 using Recodme.Rd.JadeRest.DataLayer.MenuData;
 using System.Linq;

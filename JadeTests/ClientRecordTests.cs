@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using vRecodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO.Seeders;
+using Recodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO.Seeders;
 
 namespace JadeTests
 {
@@ -44,7 +44,7 @@ namespace JadeTests
             item.RegisterDate = DateTime.Parse("2020/05/05");
             var resUpdate = bo.Update(item);
             var resNotList = bo.List().Result.Where(x => !x.IsDeleted);
-            Assert.IsTrue(resUpdate.Success && resNotList.First().RegisterDate == DateTime.UtcNow);
+            Assert.IsTrue(resUpdate.Success && resNotList.First().RegisterDate == DateTime.Parse("2020/05/05"));
         }
 
         [TestMethod]

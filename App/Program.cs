@@ -1,6 +1,6 @@
 ﻿using Recodme.Rd.JadeRest.BusinessLayer.BObjects.MenuBO;
-using vRecodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO;
-using vRecodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO.Contexts;
+using Recodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO;
+using Recodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO.Contexts;
 using Recodme.Rd.JadeRest.DataLayer;
 using System;
 
