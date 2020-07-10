@@ -32,7 +32,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DAObjects\UserDAO\" />
     <Folder Include="DAObjects\RestaurantDAO\" />
   </ItemGroup>
 

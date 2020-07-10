@@ -5,6 +5,7 @@ using Recodme.Rd.JadeRest.DataLayer.MenuData;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Recodme.Rd.JadeRest.DataLayer.UserData;
 
 namespace vRecodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO.Contexts
 {
@@ -30,6 +31,17 @@ namespace vRecodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO.Contexts
 
         }
 
+        //protected override void OnModelCreating(ModelBuilder builder)
+        //{
+        //    builder.Entity<Person>().HasOne(x => x.JadeUser).WithOne(x => x.Person);
+        //    base.OnModelCreating(builder);
+
+        //}
+
         public DbSet<DietaryRestriction> DietaryRestrictions { get; set; }
+        public DbSet<Person> People { get; set; }
+        public DbSet<ClientRecord> ClientRecords { get; set; }
+        public DbSet<StaffRecord> StaffRecords { get; set; }
+
     }
 }
