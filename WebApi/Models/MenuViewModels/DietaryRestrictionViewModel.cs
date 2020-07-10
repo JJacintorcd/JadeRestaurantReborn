@@ -14,7 +14,7 @@ namespace Recodme.Rd.JadeRest.WebApi.Models.MenuViewModels
 
         public DietaryRestriction ToDietaryRestriction()
         {
-            return new DietaryRestriction(Id, DateTime.UtcNow, DateTime.UtcNow, false, Name);
+            return new DietaryRestriction(Name);
         }
 
         public static DietaryRestrictionViewModel Parse(DietaryRestriction dietaryRestriction)
