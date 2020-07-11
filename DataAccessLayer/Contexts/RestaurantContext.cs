@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using Recodme.Rd.JadeRest.DataLayer.UserData;
 using Recodme.Rd.JadeRest.DataAccessLayer.DAOObjects.MenuDAO.Properties;
+using Recodme.Rd.JadeRest.DataLayer.RestaurantData;
 
 namespace Recodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO.Contexts
 {
@@ -42,6 +43,9 @@ namespace Recodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO.Contexts
         public DbSet<Person> People { get; set; }
         public DbSet<ClientRecord> ClientRecords { get; set; }
         public DbSet<StaffRecord> StaffRecords { get; set; }
+        public DbSet<Restaurant> Restaurants { get; set; }
+        public DbSet<Title> Titles { get; set; }
+        public DbSet<StaffTitle> StaffTitles { get; set; }
 
     }
 }
