@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>Recodme.Rd.JadeRest.BusinessLayer.BObjects.MenuBO</RootNamespace>
+    <RootNamespace>Recodme.Rd.JadeRest.BusinessLayer</RootNamespace>
     <AssemblyName>Recodme.Rd.JadeRest.BusinessLayer.BObjects.MenuBO</AssemblyName>
   </PropertyGroup>
 

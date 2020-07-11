@@ -1,11 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Recodme.Rd.JadeRest.BusinessLayer.BObjects.MenuBO.BObjects.UserBO;
-using Recodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO.Seeders;
+using Recodme.Rd.JadeRest.BusinessLayer.BObjects.UserBO;
+using Recodme.Rd.JadeRest.DataAccessLayer.Seeders;
 using Recodme.Rd.JadeRest.DataLayer.UserData;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace JadeTests
 {

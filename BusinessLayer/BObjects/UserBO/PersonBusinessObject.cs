@@ -1,5 +1,5 @@
 ﻿using Recodme.Rd.JadeRest.BusinessLayer.BObjects.MenuBO.OperationResults;
-using Recodme.Rd.JadeRest.DataAccessLayer.DAOObjects.MenuDAO.DAObjects.UserDAO;
+using Recodme.Rd.JadeRest.DataAccessLayer.DAOObjects.UserDAO;
 using Recodme.Rd.JadeRest.DataLayer.UserData;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 
-namespace Recodme.Rd.JadeRest.BusinessLayer.BObjects.MenuBO.BObjects.UserBO
+namespace Recodme.Rd.JadeRest.BusinessLayer.BObjects.UserBO
 {
     public class PersonBusinessObject
     {

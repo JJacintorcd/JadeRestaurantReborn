@@ -3,11 +3,10 @@ using Recodme.Rd.JadeRest.DataLayer.UserData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Recodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO.Contexts;
+using Recodme.Rd.JadeRest.DataAccessLayer.Contexts;
 
-namespace Recodme.Rd.JadeRest.DataAccessLayer.DAOObjects.MenuDAO.DAObjects.UserDAO
+namespace Recodme.Rd.JadeRest.DataAccessLayer.DAOObjects.UserDAO
 {
     public class PersonDataAccessObject
     {
