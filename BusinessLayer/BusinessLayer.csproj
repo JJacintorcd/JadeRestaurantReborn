@@ -10,8 +10,4 @@
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="BObjects\RestaurantBO\" />
-  </ItemGroup>
-
 </Project>
