@@ -19,7 +19,9 @@ namespace JadeTests
             var bo = new StaffRecordBusinessObject();
             var bop = new PersonBusinessObject();
             var personId = bop.List().Result.First();
-            var dr = new StaffRecord(DateTime.Parse("2020/05/05"), DateTime.Parse("2020/06/06"), personId.Id);
+            var bor = new RestaurantBusinessObject();
+            var restaurantId = bop.List().Result.First();
+            var dr = new StaffRecord(DateTime.Parse("2020/05/05"), DateTime.Parse("2020/06/06"), personId.Id, );
             var resCreate = bo.Create(dr);
             var resGet = bo.Read(dr.Id);
             Assert.IsTrue(resCreate.Success && resGet.Success && resGet.Result != null);
