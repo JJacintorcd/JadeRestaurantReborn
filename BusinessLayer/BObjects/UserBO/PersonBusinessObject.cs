@@ -259,5 +259,52 @@ namespace Recodme.Rd.JadeRest.BusinessLayer.BObjects.MenuBO.BObjects.UserBO
         }
 
         #endregion
+
+        #region List Undeleted
+        public OperationResult<List<Person>> ListUnDeleted()
+        {
+            try
+            {
+                var trOps = new TransactionOptions
+                {
+                    IsolationLevel = IsolationLevel.ReadCommitted,
+                    Timeout = TimeSpan.FromSeconds(30)
+                };
+                using var transactionScope = new TransactionScope(TransactionScopeOption.Required, trOps, TransactionScopeAsyncFlowOption.Enabled);
+                var res = _dao.List().Where(x => !x.IsDeleted).ToList();
+                transactionScope.Complete();
+                return new OperationResult<List<Person>>() { Success = true, Result = res };
+
+            }
+            catch (Exception e)
+            {
+                return new OperationResult<List<Person>>() { Success = false, Exception = e };
+
+            }
+        }
+
+        public async Task<OperationResult<List<Person>>> ListUnDeletedAsync()
+        {
+            try
+            {
+                var trOps = new TransactionOptions
+                {
+                    IsolationLevel = IsolationLevel.ReadCommitted,
+                    Timeout = TimeSpan.FromSeconds(30)
+                };
+                using var transactionScope = new TransactionScope(TransactionScopeOption.Required, trOps, TransactionScopeAsyncFlowOption.Enabled);
+                var res = await _dao.ListAsync();
+                res = res.Where(x => !x.IsDeleted).ToList();
+                transactionScope.Complete();
+                return new OperationResult<List<Person>>() { Success = true, Result = res };
+
+            }
+            catch (Exception e)
+            {
+                return new OperationResult<List<Person>>() { Success = false, Exception = e };
+
+            }
+        }
+        #endregion
     }
 }

@@ -4,91 +4,81 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Controllers;
-using Recodme.Rd.JadeRest.BusinessLayer.BObjects.MenuBO;
-using Recodme.Rd.JadeRest.DataLayer;
-using Recodme.Rd.JadeRest.WebApi.Models.MenuViewModels;
+using Recodme.Rd.JadeRest.BusinessLayer.BObjects.MenuBO.BObjects.UserBO;
+using Recodme.Rd.JadeRest.WebApi.Controllers.MenuControllers;
+using Recodme.Rd.JadeRest.WebApi.Models.UserViewModels;
 
-namespace Recodme.Rd.JadeRest.WebApi.Controllers.MenuControllers
+namespace Recodme.Rd.JadeRest.WebApi.Controllers.UserControllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DietaryRestrictionController : BaseController
+    public class ClientRecordController : BaseController
     {
-        private DietaryRestrictionBusinessObject _bo = new DietaryRestrictionBusinessObject();
+        private ClientRecordBusinessObject _bo = new ClientRecordBusinessObject();
 
         [HttpPost]
-        public ActionResult Create([FromBody]DietaryRestrictionViewModel vm)
+        public ActionResult Create([FromBody]ClientRecordViewModel vm)
         {
-            var dr = vm.ToDietaryRestriction();
-            var res = _bo.Create(dr);
-
+            var rt = vm.ToClient();
+            var res = _bo.Create(rt);
             return (res.Success ? Ok() : InternalServerError());
         }
 
         [HttpGet("{id}")]
-        public ActionResult<DietaryRestrictionViewModel> Get(Guid id)
+        public ActionResult<ClientRecordViewModel> Get(Guid id)
         {
             var res = _bo.Read(id);
-
             if (res.Success)
             {
                 if (res.Result == null) return NotFound();
-                if (res.Result.UpdatedAt != DateTime.UtcNow) return InternalServerError();
-
-                var vm = DietaryRestrictionViewModel.Parse(res.Result);
+                var vm = ClientRecordViewModel.Parse(res.Result);
                 return vm;
             }
             else return InternalServerError();
         }
 
         [HttpGet]
-        public ActionResult<List<DietaryRestrictionViewModel>> ListUnDeleted()
+        public ActionResult<List<ClientRecordViewModel>> ListUndeleted()
         {
             var res = _bo.ListUnDeleted();
             if (!res.Success) return InternalServerError();
-
-            var list = new List<DietaryRestrictionViewModel>();
+            var list = new List<ClientRecordViewModel>();
             foreach (var item in res.Result)
             {
-                list.Add(DietaryRestrictionViewModel.Parse(item));
+                list.Add(ClientRecordViewModel.Parse(item));
             }
-
             return list;
         }
 
         [HttpGet("FullList")]
-        public ActionResult<List<DietaryRestrictionViewModel>> List()
+        public ActionResult<List<ClientRecordViewModel>> List()
         {
             var res = _bo.List();
             if (!res.Success) return InternalServerError();
-
-            var list = new List<DietaryRestrictionViewModel>();
+            var list = new List<ClientRecordViewModel>();
             foreach (var item in res.Result)
             {
-                list.Add(DietaryRestrictionViewModel.Parse(item));
+                list.Add(ClientRecordViewModel.Parse(item));
             }
-
             return list;
-        }        
+        }
 
         [HttpPut]
-        public ActionResult Update([FromBody]DietaryRestrictionViewModel dr)
+        public ActionResult Update([FromBody]ClientRecordViewModel rt)
         {
-            var currentResult = _bo.Read(dr.Id);
+            var currentResult = _bo.Read(rt.Id);
             if (!currentResult.Success) return InternalServerError();
-
             var current = currentResult.Result;
             if (current == null) return NotFound();
 
-            if (current.Name == dr.Name) return NotModified();
+            if (current.RegisterDate == rt.RegisterDate) return NotModified();
 
-            if (current.Name != dr.Name) current.Name = dr.Name;
+            if (current.RegisterDate != rt.RegisterDate) current.RegisterDate = rt.RegisterDate;
 
             var updateResult = _bo.Update(current);
             if (!updateResult.Success) return InternalServerError();
-
             return Ok();
+
         }
 
         [HttpDelete("{id}")]
@@ -96,8 +86,8 @@ namespace Recodme.Rd.JadeRest.WebApi.Controllers.MenuControllers
         {
             var result = _bo.Delete(id);
             if (result.Success) return Ok();
-
             return InternalServerError();
+
         }
     }
 }

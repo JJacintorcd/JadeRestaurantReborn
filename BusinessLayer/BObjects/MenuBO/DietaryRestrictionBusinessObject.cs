@@ -3,6 +3,7 @@ using Recodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO;
 using Recodme.Rd.JadeRest.DataLayer.MenuData;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -208,6 +209,53 @@ namespace Recodme.Rd.JadeRest.BusinessLayer.BObjects.MenuBO
                 };
                 using var transactionScope = new TransactionScope(TransactionScopeOption.Required, trOps, TransactionScopeAsyncFlowOption.Enabled);
                 var res = await _dao.ListAsync();
+                transactionScope.Complete();
+                return new OperationResult<List<DietaryRestriction>>() { Success = true, Result = res };
+
+            }
+            catch (Exception e)
+            {
+                return new OperationResult<List<DietaryRestriction>>() { Success = false, Exception = e };
+
+            }
+        }
+        #endregion
+
+        #region List Undeleted
+        public OperationResult<List<DietaryRestriction>> ListUnDeleted()
+        {
+            try
+            {
+                var trOps = new TransactionOptions
+                {
+                    IsolationLevel = IsolationLevel.ReadCommitted,
+                    Timeout = TimeSpan.FromSeconds(30)
+                };
+                using var transactionScope = new TransactionScope(TransactionScopeOption.Required, trOps, TransactionScopeAsyncFlowOption.Enabled);
+                var res = _dao.List().Where(x => !x.IsDeleted).ToList();
+                transactionScope.Complete();
+                return new OperationResult<List<DietaryRestriction>>() { Success = true, Result = res };
+
+            }
+            catch (Exception e)
+            {
+                return new OperationResult<List<DietaryRestriction>>() { Success = false, Exception = e };
+
+            }
+        }
+
+        public async Task<OperationResult<List<DietaryRestriction>>> ListUnDeletedAsync()
+        {
+            try
+            {
+                var trOps = new TransactionOptions
+                {
+                    IsolationLevel = IsolationLevel.ReadCommitted,
+                    Timeout = TimeSpan.FromSeconds(30)
+                };
+                using var transactionScope = new TransactionScope(TransactionScopeOption.Required, trOps, TransactionScopeAsyncFlowOption.Enabled);
+                var res = await _dao.ListAsync();
+                res = res.Where(x => !x.IsDeleted).ToList();
                 transactionScope.Complete();
                 return new OperationResult<List<DietaryRestriction>>() { Success = true, Result = res };
 

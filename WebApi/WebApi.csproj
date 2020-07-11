@@ -17,9 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\UserControllers\" />
     <Folder Include="Controllers\RestaurantControllers\" />
-    <Folder Include="Models\UserViewModels\" />
     <Folder Include="Models\RestaurantViewModels\" />
   </ItemGroup>
 
