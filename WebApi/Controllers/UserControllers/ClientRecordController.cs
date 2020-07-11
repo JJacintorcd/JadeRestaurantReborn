@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Recodme.Rd.JadeRest.BusinessLayer.BObjects.MenuBO.BObjects.UserBO;
+using Recodme.Rd.JadeRest.BusinessLayer.BObjects.UserBO;
 using Recodme.Rd.JadeRest.WebApi.Controllers.MenuControllers;
 using Recodme.Rd.JadeRest.WebApi.Models.UserViewModels;
 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Recodme.Rd.JadeRest.BusinessLayer.BObjects.MenuBO.BObjects.UserBO;
-using Recodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO.Seeders;
+using Recodme.Rd.JadeRest.BusinessLayer.BObjects.RestaurantBO;
+using Recodme.Rd.JadeRest.BusinessLayer.BObjects.UserBO;
+using Recodme.Rd.JadeRest.DataAccessLayer.Seeders;
 using Recodme.Rd.JadeRest.DataLayer.UserData;
 using System;
 using System.Collections.Generic;
@@ -20,8 +21,8 @@ namespace JadeTests
             var bop = new PersonBusinessObject();
             var personId = bop.List().Result.First();
             var bor = new RestaurantBusinessObject();
-            var restaurantId = bop.List().Result.First();
-            var dr = new StaffRecord(DateTime.Parse("2020/05/05"), DateTime.Parse("2020/06/06"), personId.Id, );
+            var restaurantId = bor.List().Result.First();
+            var dr = new StaffRecord(DateTime.Parse("2020/05/05"), DateTime.Parse("2020/06/06"), personId.Id, restaurantId.Id);
             var resCreate = bo.Create(dr);
             var resGet = bo.Read(dr.Id);
             Assert.IsTrue(resCreate.Success && resGet.Success && resGet.Result != null);

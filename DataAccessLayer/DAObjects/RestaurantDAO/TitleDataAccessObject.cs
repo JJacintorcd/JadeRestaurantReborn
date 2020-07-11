@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Recodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO.Contexts;
+using Recodme.Rd.JadeRest.DataAccessLayer.Contexts;
 using Recodme.Rd.JadeRest.DataLayer.RestaurantData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Recodme.Rd.JadeRest.DataAccessLayer.DAOObjects.MenuDAO.DAObjects.TitleDAO
+namespace Recodme.Rd.JadeRest.DataAccessLayer.DAOObjects.TitleDAO
 {
     public class TitleDataAccessObject
     {

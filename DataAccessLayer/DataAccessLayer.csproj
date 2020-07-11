@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>Recodme.Rd.JadeRest.DataAccess</AssemblyName>
-    <RootNamespace>Recodme.Rd.JadeRest.DataAccessLayer.DAOObjects.MenuDAO</RootNamespace>
+    <RootNamespace>Recodme.Rd.JadeRest.DataAccessLayer</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

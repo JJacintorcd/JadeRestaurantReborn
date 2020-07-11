@@ -1,14 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Recodme.Rd.JadeRest.DataLayer.MenuData;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Recodme.Rd.JadeRest.DataLayer.UserData;
-using Recodme.Rd.JadeRest.DataAccessLayer.DAOObjects.MenuDAO.Properties;
+using Recodme.Rd.JadeRest.DataAccessLayer.Properties;
 using Recodme.Rd.JadeRest.DataLayer.RestaurantData;
 
-namespace Recodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO.Contexts
+namespace Recodme.Rd.JadeRest.DataAccessLayer.Contexts
 {
     public class RestaurantContext : IdentityDbContext
     {

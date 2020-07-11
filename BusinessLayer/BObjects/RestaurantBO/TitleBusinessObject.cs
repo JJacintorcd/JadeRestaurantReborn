@@ -1,5 +1,5 @@
 ﻿using Recodme.Rd.JadeRest.BusinessLayer.BObjects.MenuBO.OperationResults;
-using Recodme.Rd.JadeRest.DataAccessLayer.DAOObjects.MenuDAO.DAObjects.TitleDAO;
+using Recodme.Rd.JadeRest.DataAccessLayer.DAOObjects.TitleDAO;
 using Recodme.Rd.JadeRest.DataLayer.RestaurantData;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Transactions;
 
-namespace Recodme.Rd.JadeRest.BusinessLayer.BObjects.MenuBO.BObjects.TitleBO
+namespace Recodme.Rd.JadeRest.BusinessLayer.BObjects.TitleBO
 {
     class TitleBusinessObject
     {
