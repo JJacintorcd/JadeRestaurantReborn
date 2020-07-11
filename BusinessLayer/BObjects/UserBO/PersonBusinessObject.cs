@@ -93,9 +93,9 @@ namespace Recodme.Rd.JadeRest.BusinessLayer.BObjects.UserBO
 
                 };
                 using var transactionScope = new TransactionScope(TransactionScopeOption.Required, trOps, TransactionScopeAsyncFlowOption.Enabled);
-                await _dao.ReadAsync(id);
+                var result = await _dao.ReadAsync(id);
                 transactionScope.Complete();
-                return new OperationResult<Person>() { Success = true };
+                return new OperationResult<Person>() { Success = true, Result = result };
 
             }
             catch (Exception e)

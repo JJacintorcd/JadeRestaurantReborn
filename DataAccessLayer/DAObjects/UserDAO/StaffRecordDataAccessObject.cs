@@ -46,8 +46,7 @@ namespace Recodme.Rd.JadeRest.DataAccessLayer.DAOObjects.UserDAO
 
         public async Task<StaffRecord> ReadAsync(Guid id)
         {
-            return await
-                new Task<StaffRecord>(() => _context.StaffRecords.FirstOrDefault(x => x.Id == id));
+            return await _context.StaffRecords.FirstOrDefaultAsync(x => x.Id == id);
 
         }
 

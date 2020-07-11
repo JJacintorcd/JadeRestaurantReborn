@@ -1,8 +1,8 @@
 ﻿using Recodme.Rd.JadeRest.DataAccessLayer.Contexts;
 using Recodme.Rd.JadeRest.DataLayer.MenuData;
-using System;
-using Recodme.Rd.JadeRest.DataLayer.UserData;
 using Recodme.Rd.JadeRest.DataLayer.RestaurantData;
+using Recodme.Rd.JadeRest.DataLayer.UserData;
+using System;
 
 namespace Recodme.Rd.JadeRest.DataAccessLayer.Seeders
 {

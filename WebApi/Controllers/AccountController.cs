@@ -19,43 +19,43 @@ namespace Recodme.Rd.JadeRest.WebApi.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        private readonly IConfiguration _config;
+        //private readonly IConfiguration _config;
 
-        public AccountController(IConfiguration config)
-        {
-            _config = config;
-        }
+        //public AccountController(IConfiguration config)
+        //{
+        //    _config = config;
+        //}
 
-        [HttpGet]
-        public ActionResult<string> Login()
-        {
-            var mockUser = new JadeUser(Guid.NewGuid());
-            mockUser.Email = "notfakeatall@trustme.com";
-            mockUser.PasswordHash = "12345";
-            return GenerateJsonWebToken(mockUser);
-        }
+        //[HttpGet]
+        //public ActionResult<string> Login()
+        //{
+        //    var mockUser = new JadeUser(Guid.NewGuid());
+        //    mockUser.Email = "notfakeatall@trustme.com";
+        //    mockUser.PasswordHash = "12345";
+        //    return GenerateJsonWebToken(mockUser);
+        //}
 
-        [HttpGet("Secret")]
-        [Authorize]
-        public ActionResult<string> Secret()
-        {
-            return "it's free real estate";
-        }
+        //[HttpGet("Secret")]
+        //[Authorize]
+        //public ActionResult<string> Secret()
+        //{
+        //    return "it's free real estate";
+        //}
 
-        private string GenerateJsonWebToken(JadeUser user)
-        {
-            var jwtKey = _config["Jwt:key"];
-            var keyBytes = Encoding.UTF8.GetBytes(jwtKey);
-            var key = new SymmetricSecurityKey(keyBytes);
-            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            var issuer = _config["Jwt:Issuer"];
-            var audience = _config["Jwt:Audience"];
-            var claims = new List<Claim>()
-            {
-                new Claim(JwtRegisteredClaimNames.Sub, user.Email)
-            };
-            var token = new JwtSecurityToken(issuer, audience, claims, expires: DateTime.Now.AddHours(2), signingCredentials: credentials);
-            return new JwtSecurityTokenHandler().WriteToken(token);
-        }
+        //private string GenerateJsonWebToken(JadeUser user)
+        //{
+        //    var jwtKey = _config["Jwt:key"];
+        //    var keyBytes = Encoding.UTF8.GetBytes(jwtKey);
+        //    var key = new SymmetricSecurityKey(keyBytes);
+        //    var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+        //    var issuer = _config["Jwt:Issuer"];
+        //    var audience = _config["Jwt:Audience"];
+        //    var claims = new List<Claim>()
+        //    {
+        //        new Claim(JwtRegisteredClaimNames.Sub, user.Email)
+        //    };
+        //    var token = new JwtSecurityToken(issuer, audience, claims, expires: DateTime.Now.AddHours(2), signingCredentials: credentials);
+        //    return new JwtSecurityTokenHandler().WriteToken(token);
+        //}
     }
 }

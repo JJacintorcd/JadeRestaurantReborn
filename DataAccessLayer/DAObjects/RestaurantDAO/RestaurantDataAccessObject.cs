@@ -45,9 +45,7 @@ namespace Recodme.Rd.JadeRest.DataAccessLayer.DAOObjects.RestaurantDAO
 
         public async Task<Restaurant> ReadAsync(Guid id)
         {
-            return await
-                new Task<Restaurant>(() => _context.Restaurants.FirstOrDefault(x => x.Id == id));
-
+            return await _context.Restaurants.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         #endregion

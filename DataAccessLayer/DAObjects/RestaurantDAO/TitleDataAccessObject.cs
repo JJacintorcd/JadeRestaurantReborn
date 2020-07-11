@@ -45,8 +45,7 @@ namespace Recodme.Rd.JadeRest.DataAccessLayer.DAOObjects.TitleDAO
 
         public async Task<Title> ReadAsync(Guid id)
         {
-            return await
-                new Task<Title>(() => _context.Titles.FirstOrDefault(x => x.Id == id));
+            return await _context.Titles.FirstOrDefaultAsync(x => x.Id == id);
 
         }
 

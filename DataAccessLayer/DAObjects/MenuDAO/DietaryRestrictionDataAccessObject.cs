@@ -38,7 +38,7 @@ namespace Recodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO
 
         public async Task<DietaryRestriction> ReadAsync (Guid id)
         {
-            return await new Task<DietaryRestriction>(() => _context.DietaryRestrictions.FirstOrDefault(x => x.Id == id));
+            return await _context.DietaryRestrictions.FirstOrDefaultAsync(x => x.Id == id);           
         }
         #endregion
 
