@@ -1,52 +1,55 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Recodme.Rd.JadeRest.BusinessLayer.BObjects.RestaurantBO;
+using Recodme.Rd.JadeRest.BusinessLayer.BObjects.TitleBO;
 using Recodme.Rd.JadeRest.DataAccessLayer.Seeders;
 using Recodme.Rd.JadeRest.DataLayer.RestaurantData;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace JadeTests
 {
     [TestClass]
-    public class RestaurantTests
+    public class TitleTests
     {
         [TestMethod]
-        public void TestCreateAndReadRestaurant()
+        public void TestCreateAndReadTitle()
         {
             RestaurantSeeder.SeedCountries();
-            var bo = new RestaurantBusinessObject();
-            var rs = new Restaurant("Jade", "Avenida da Liberdade antes da rotunda", "13h00", "23h00", "monday", 24);
-            var resCreate = bo.Create(rs);
-            var resGet = bo.Read(rs.Id);
+            var bo = new TitleBusinessObject();
+            var tl = new Title("Chef", "Sous Chef", "responsible for saucing all plates, i think...");
+            var resCreate = bo.Create(tl);
+            var resGet = bo.Read(tl.Id);
             Assert.IsTrue(resCreate.Success && resGet.Success && resGet.Result != null);
         }
 
         [TestMethod]
-        public void TestListRestaurant()
+        public void TestListTitle()
         {
             RestaurantSeeder.SeedCountries();
-            var bo = new RestaurantBusinessObject();
+            var bo = new TitleBusinessObject();
             var resList = bo.List();
             Assert.IsTrue(resList.Success && resList.Result.Count == 1);
         }
 
         [TestMethod]
-        public void TestUpdateRestaurant()
+        public void TestUpdateTitle()
         {
             RestaurantSeeder.SeedCountries();
-            var bo = new RestaurantBusinessObject();
+            var bo = new TitleBusinessObject();
             var resList = bo.List();
             var item = resList.Result.FirstOrDefault();
-            item.OpeningHours = "9h00";
+            item.Name = "Master Chef";
             var resUpdate = bo.Update(item);
             var resNotList = bo.List().Result.Where(x => !x.IsDeleted);
-            Assert.IsTrue(resUpdate.Success && resNotList.First().OpeningHours == "9h00");
+            Assert.IsTrue(resUpdate.Success && resNotList.First().Name == "Master Chef");
         }
 
         [TestMethod]
-        public void TestDeleteRestaurant()
+        public void TestDeleteTitle()
         {
             RestaurantSeeder.SeedCountries();
-            var bo = new RestaurantBusinessObject();
+            var bo = new TitleBusinessObject();
             var resList = bo.List();
             var resDelete = bo.Delete(resList.Result.First().Id);
             var resNotList = bo.List().Result.Where(x => !x.IsDeleted).ToList();
