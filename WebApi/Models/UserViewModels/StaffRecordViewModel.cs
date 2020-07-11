@@ -10,13 +10,13 @@ namespace Recodme.Rd.JadeRest.WebApi.Models.UserViewModels
     {
         public Guid Id { get; set; }
         public Guid PersonId { get; set; }
-        //public Guid RestaurantId { get; set; }
+        public Guid RestaurantId { get; set; }
         public DateTime BeginDate { get; set; }
         public DateTime EndDate { get; set; }
 
         public StaffRecord ToStaff()
         {
-            return new StaffRecord(BeginDate, EndDate, PersonId/*, RestaurantId*/);
+            return new StaffRecord(BeginDate, EndDate, PersonId, RestaurantId);
 
         }
 
@@ -26,7 +26,7 @@ namespace Recodme.Rd.JadeRest.WebApi.Models.UserViewModels
             {
                 Id = Staff.Id,
                 PersonId = Staff.PersonId,
-                //RestaurantId = Staff.RestaurantId,
+                RestaurantId = Staff.RestaurantId,
                 BeginDate = Staff.BeginDate,
                 EndDate = Staff.EndDate
 
