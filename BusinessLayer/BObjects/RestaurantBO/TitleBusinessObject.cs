@@ -9,7 +9,7 @@ using System.Transactions;
 
 namespace Recodme.Rd.JadeRest.BusinessLayer.BObjects.TitleBO
 {
-    class TitleBusinessObject
+    public class TitleBusinessObject
     {
         private TitleDataAccessObject _dao;
 
