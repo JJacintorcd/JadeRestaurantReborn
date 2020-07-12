@@ -16,8 +16,8 @@ namespace Recodme.Rd.JadeRest.DataAccessLayer.Seeders
 
             var dr1 = new DietaryRestriction("Vegan");
             var pe1 = new Person(123456789, "Zé", "Pedro", 987654321, DateTime.Parse("1990/01/01"));
-            var cr1 = new ClientRecord(DateTime.Parse("2020/05/05"), pe1.Id);
             var rs1 = new Restaurant("Jade", "Avenida da Liberdade antes da rotunda", "13h00", "23h00", "monday", 24);
+            var cr1 = new ClientRecord(DateTime.Parse("2020/05/05"), pe1.Id, rs1.Id);
             var tl1 = new Title("Chef", "Sous Chef", "responsible for saucing all plates, i think...");
             var sr1 = new StaffRecord(DateTime.Parse("2020/05/05"), DateTime.Parse("2020/06/06"), pe1.Id, rs1.Id);
             var st1 = new StaffTitle(DateTime.Parse("2015/05/05"), DateTime.Parse("2020/05/05"), tl1.Id, sr1.Id);
