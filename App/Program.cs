@@ -14,8 +14,8 @@ namespace App
             //var database = new RestaurantContext();
             //database.Database.EnsureCreated();
 
-            var bo = new RestaurantBusinessObject();
-            var res = bo.ListUnDeleted();
+            //var bo = new RestaurantBusinessObject();
+            //var res = bo.ListUnDeleted();
 
 
         }

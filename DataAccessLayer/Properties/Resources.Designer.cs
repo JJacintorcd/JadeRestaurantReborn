@@ -61,7 +61,7 @@ namespace Recodme.Rd.JadeRest.DataAccessLayer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Server=RECODME-AMARTIM\SQLEXPRESS;Database=JadeRestaurante;Trusted_Connection=true;.
+        ///   Looks up a localized string similar to Data Source=SQL5063.site4now.net;Initial Catalog=DB_A6469F_dblol;User Id=DB_A6469F_dblol_admin;Password=Covfefe420.
         /// </summary>
         public static string ConnectionString {
             get {
@@ -84,6 +84,15 @@ namespace Recodme.Rd.JadeRest.DataAccessLayer.Properties {
         public static string ConnectionStringJacinto {
             get {
                 return ResourceManager.GetString("ConnectionStringJacinto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data Source=SQL5063.site4now.net;Initial Catalog=DB_A6469F_dblol;User Id=DB_A6469F_dblol_admin;Password=Covfefe420.
+        /// </summary>
+        public static string ConnectionStringSmarterJacinto {
+            get {
+                return ResourceManager.GetString("ConnectionStringSmarterJacinto", resourceCulture);
             }
         }
     }
