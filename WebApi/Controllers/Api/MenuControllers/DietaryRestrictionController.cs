@@ -9,7 +9,7 @@ using Recodme.Rd.JadeRest.BusinessLayer.BObjects.MenuBO;
 using Recodme.Rd.JadeRest.DataLayer;
 using Recodme.Rd.JadeRest.WebApi.Models.MenuViewModels;
 
-namespace Recodme.Rd.JadeRest.WebApi.Controllers.MenuControllers
+namespace Recodme.Rd.JadeRest.WebApi.Controllers.Api.MenuControllers
 {
     [Route("api/[controller]")]
     [ApiController]

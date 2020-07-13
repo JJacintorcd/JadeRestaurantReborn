@@ -8,7 +8,7 @@ using Recodme.Rd.JadeRest.BusinessLayer.BObjects.UserBO;
 using Recodme.Rd.JadeRest.WebApi.Controllers.MenuControllers;
 using Recodme.Rd.JadeRest.WebApi.Models.UserViewModels;
 
-namespace Recodme.Rd.JadeRest.WebApi.Controllers.UserControllers
+namespace Recodme.Rd.JadeRest.WebApi.Controllers.Api.UserControllers
 {
     [Route("api/[controller]")]
     [ApiController]

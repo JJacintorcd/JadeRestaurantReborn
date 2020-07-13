@@ -4,78 +4,81 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Recodme.Rd.JadeRest.BusinessLayer.BObjects.TitleBO;
+using Recodme.Rd.JadeRest.BusinessLayer.BObjects.RestaurantBO;
 using Recodme.Rd.JadeRest.WebApi.Controllers.MenuControllers;
 using Recodme.Rd.JadeRest.WebApi.Models.RestaurantViewModels;
 
-namespace Recodme.Rd.JadeRest.WebApi.Controllers.RestaurantControllers
+namespace Recodme.Rd.JadeRest.WebApi.Controllers.Api.RestaurantControllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TitleController : BaseController
+    public class RestaurantController : BaseController
     {
-        private TitleBusinessObject _bo = new TitleBusinessObject();
+        private RestaurantBusinessObject _bo = new RestaurantBusinessObject();
 
         [HttpPost]
-        public ActionResult Create([FromBody]TitleViewModel vm)
+        public ActionResult Create([FromBody]RestaurantViewModel vm)
         {
-            var rt = vm.ToTitle();
+            var rt = vm.ToRestaurant();
             var res = _bo.Create(rt);
             return (res.Success ? Ok() : InternalServerError());
         }
 
         [HttpGet("{id}")]
-        public ActionResult<TitleViewModel> Get(Guid id)
+        public ActionResult<RestaurantViewModel> Get(Guid id)
         {
             var res = _bo.Read(id);
             if (res.Success)
             {
                 if (res.Result == null) return NotFound();
-                var vm = TitleViewModel.Parse(res.Result);
+                var vm = RestaurantViewModel.Parse(res.Result);
                 return vm;
             }
             else return InternalServerError();
         }
 
         [HttpGet]
-        public ActionResult<List<TitleViewModel>> ListUndeleted()
+        public ActionResult<List<RestaurantViewModel>> ListUndeleted()
         {
             var res = _bo.ListUnDeleted();
             if (!res.Success) return InternalServerError();
-            var list = new List<TitleViewModel>();
+            var list = new List<RestaurantViewModel>();
             foreach (var item in res.Result)
             {
-                list.Add(TitleViewModel.Parse(item));
+                list.Add(RestaurantViewModel.Parse(item));
             }
             return list;
         }
 
         [HttpGet("FullList")]
-        public ActionResult<List<TitleViewModel>> List()
+        public ActionResult<List<RestaurantViewModel>> List()
         {
             var res = _bo.List();
             if (!res.Success) return InternalServerError();
-            var list = new List<TitleViewModel>();
+            var list = new List<RestaurantViewModel>();
             foreach (var item in res.Result)
             {
-                list.Add(TitleViewModel.Parse(item));
+                list.Add(RestaurantViewModel.Parse(item));
             }
             return list;
         }
 
         [HttpPut]
-        public ActionResult Update([FromBody]TitleViewModel rt)
+        public ActionResult Update([FromBody]RestaurantViewModel rt)
         {
             var currentResult = _bo.Read(rt.Id);
             if (!currentResult.Success) return InternalServerError();
             var current = currentResult.Result;
             if (current == null) return NotFound();
 
-            if (current.Name == rt.Name && current.Position == rt.Position && current.Description == rt.Description) return NotModified();
+            if (current.Name == rt.Name && current.Address == rt.Address && current.OpeningHours == rt.OpeningHours && current.ClosingHours == rt.ClosingHours && current.ClosingDays == rt.ClosingDays && current.TableCount == rt.TableCount) return NotModified();
 
             if (current.Name != rt.Name) current.Name = rt.Name;
-            if (current.Position != rt.Position) current.Position = rt.Position;
-            if (current.Description != rt.Description) current.Description = rt.Description;
+            if (current.Address != rt.Address) current.Address = rt.Address;
+            if (current.OpeningHours != rt.OpeningHours) current.OpeningHours = rt.OpeningHours;
+            if (current.ClosingHours != rt.ClosingHours) current.ClosingHours = rt.ClosingHours;
+            if (current.ClosingDays != rt.ClosingDays) current.ClosingDays = rt.ClosingDays;
+            if (current.TableCount != rt.TableCount) current.TableCount = rt.TableCount;
 
             var updateResult = _bo.Update(current);
             if (!updateResult.Success) return InternalServerError();
