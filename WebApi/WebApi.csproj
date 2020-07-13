@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\RestaurantControllers\" />
+    <Folder Include="Controllers\Api\RestaurantControllers\" />
     <Folder Include="Models\RestaurantViewModels\" />
   </ItemGroup>
 
