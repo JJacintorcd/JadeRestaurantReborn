@@ -1,4 +1,5 @@
 ﻿using Recodme.Rd.JadeRest.DataLayer.Base;
+using Recodme.Rd.JadeRest.DataLayer.RestaurantData;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -30,26 +31,26 @@ namespace Recodme.Rd.JadeRest.DataLayer.UserData
         public Guid PersonId { get; set; }
         public virtual Person Person { get; set; }
 
-        //[ForeignKey("Restaurant")]
-        //public Guid RestaurantId { get; set; }
-        //public virtual Restaurant Restaurant { get; set; }
+        [ForeignKey("Restaurant")]
+        public Guid RestaurantId { get; set; }
+        public virtual Restaurant Restaurant { get; set; }
 
         //public virtual ICollection<Booking> Bookings { get; set; }
 
 
-        public ClientRecord(DateTime registerDate, Guid personId/*, Guid restaurantId*/)
+        public ClientRecord(DateTime registerDate, Guid personId, Guid restaurantId)
         {
             _registerDate = registerDate;
             PersonId = personId;
-            //RestaurantId = restaurantId;
+            RestaurantId = restaurantId;
 
         }
 
-        public ClientRecord(Guid id, DateTime createdAt, DateTime updatedAt, bool isDeleted, DateTime registerDate, Guid personId/*, Guid restaurantId*/) : base(id, createdAt, updatedAt, isDeleted)
+        public ClientRecord(Guid id, DateTime createdAt, DateTime updatedAt, bool isDeleted, DateTime registerDate, Guid personId, Guid restaurantId) : base(id, createdAt, updatedAt, isDeleted)
         {
             _registerDate = registerDate;
             PersonId = personId;
-            //RestaurantId = restaurantId;
+            RestaurantId = restaurantId;
         }
     }
 }

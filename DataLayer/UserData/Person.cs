@@ -98,8 +98,8 @@ namespace Recodme.Rd.JadeRest.DataLayer.UserData
         //public Guid UserId { get; set; }
         //public virtual JadeUser JadeUser { get; set; }
 
-        //public virtual ICollection<StaffRecord> StaffRecords { get; set; }
-        //public virtual ICollection<ClientRecord> ClientRecords { get; set; }
+        public virtual ICollection<StaffRecord> StaffRecords { get; set; }
+        public virtual ICollection<ClientRecord> ClientRecords { get; set; }
 
 
         public Person(long vatNumber, string firstName, string lastName, long phoneNumber, DateTime birthDate/*, Guid userId*/)

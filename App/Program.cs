@@ -3,6 +3,7 @@ using Recodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO;
 using Recodme.Rd.JadeRest.DataAccessLayer.Contexts;
 using Recodme.Rd.JadeRest.DataLayer;
 using System;
+using Recodme.Rd.JadeRest.BusinessLayer.BObjects.RestaurantBO;
 
 namespace App
 {
@@ -13,9 +14,10 @@ namespace App
             //var database = new RestaurantContext();
             //database.Database.EnsureCreated();
 
-            var dao = new DietaryRestrictionDataAccessObject();
-            var omni = dao.Read(Guid.Parse("4047AFDC-FD05-4CCB-95F9-F862505EF31D"));
-            dao.Update(omni);
+            var bo = new RestaurantBusinessObject();
+            var res = bo.ListUnDeleted();
+
+
         }
     }
 }

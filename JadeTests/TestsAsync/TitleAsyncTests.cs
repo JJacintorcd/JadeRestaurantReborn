@@ -1,58 +1,55 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Recodme.Rd.JadeRest.BusinessLayer.BObjects.RestaurantBO;
-using Recodme.Rd.JadeRest.BusinessLayer.BObjects.UserBO;
+using Recodme.Rd.JadeRest.BusinessLayer.BObjects.TitleBO;
 using Recodme.Rd.JadeRest.DataAccessLayer.Seeders;
-using Recodme.Rd.JadeRest.DataLayer.UserData;
+using Recodme.Rd.JadeRest.DataLayer.RestaurantData;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace JadeTests.TestsAsync
 {
     [TestClass]
-    public class ClientRecordAsyncTests
+    public class TitleAsyncTests
     {
         [TestMethod]
-        public void TestCreateAndReadClientRecordAsync()
+        public void TestCreateAndReadTitleAsync()
         {
             RestaurantSeeder.SeedCountries();
-            var bo = new ClientRecordBusinessObject();
-            var bop = new PersonBusinessObject();
-            var personId = bop.List().Result.First();
-            var rop = new RestaurantBusinessObject();
-            var resId = rop.List().Result.First();
-            var dr = new ClientRecord(DateTime.Parse("2020/05/05"), personId.Id, resId.Id);
-            var resCreate = bo.CreateAsync(dr).Result;
-            var resGet = bo.ReadAsync(dr.Id).Result;
+            var bo = new TitleBusinessObject();
+            var tl = new Title("Chef", "Sous Chef", "responsible for saucing all plates, i think...");
+            var resCreate = bo.CreateAsync(tl).Result;
+            var resGet = bo.ReadAsync(tl.Id).Result;
             Assert.IsTrue(resCreate.Success && resGet.Success && resGet.Result != null);
         }
 
         [TestMethod]
-        public void TestListClientRecordAsync()
+        public void TestListTitleAsync()
         {
             RestaurantSeeder.SeedCountries();
-            var bo = new ClientRecordBusinessObject();
+            var bo = new TitleBusinessObject();
             var resList = bo.ListAsync().Result;
             Assert.IsTrue(resList.Success && resList.Result.Count == 1);
         }
 
         [TestMethod]
-        public void TestUpdateClientRecordAsync()
+        public void TestUpdateTitleAsync()
         {
             RestaurantSeeder.SeedCountries();
-            var bo = new ClientRecordBusinessObject();
+            var bo = new TitleBusinessObject();
             var resList = bo.ListAsync().Result;
             var item = resList.Result.FirstOrDefault();
-            item.RegisterDate = DateTime.Parse("2020/06/05");
+            item.Name = "Master Chef";
             var resUpdate = bo.UpdateAsync(item).Result;
             resList = bo.ListUnDeletedAsync().Result;
-            Assert.IsTrue(resList.Success && resUpdate.Success && resList.Result.First().RegisterDate == DateTime.Parse("2020/06/05"));
+            Assert.IsTrue(resList.Success && resUpdate.Success && resList.Result.First().Name == "Master Chef");
         }
 
         [TestMethod]
-        public void TestDeleteClientRecordAsync()
+        public void TestDeleteTitleAsync()
         {
             RestaurantSeeder.SeedCountries();
-            var bo = new ClientRecordBusinessObject();
+            var bo = new TitleBusinessObject();
             var resList = bo.ListAsync().Result;
             var resDelete = bo.DeleteAsync(resList.Result.First().Id).Result;
             resList = bo.ListUnDeletedAsync().Result;

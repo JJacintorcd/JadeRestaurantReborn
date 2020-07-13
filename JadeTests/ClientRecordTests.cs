@@ -4,6 +4,7 @@ using Recodme.Rd.JadeRest.DataLayer.UserData;
 using System;
 using System.Linq;
 using Recodme.Rd.JadeRest.DataAccessLayer.Seeders;
+using Recodme.Rd.JadeRest.BusinessLayer.BObjects.RestaurantBO;
 
 namespace JadeTests
 {
@@ -17,7 +18,9 @@ namespace JadeTests
             var bo = new ClientRecordBusinessObject();
             var bop = new PersonBusinessObject();
             var personId = bop.List().Result.First();
-            var dr = new ClientRecord(DateTime.Parse("2020/05/05"), personId.Id);
+            var rop = new RestaurantBusinessObject();
+            var resId = rop.List().Result.First();
+            var dr = new ClientRecord(DateTime.Parse("2020/05/05"), personId.Id, resId.Id);
             var resCreate = bo.Create(dr);
             var resGet = bo.Read(dr.Id);
             Assert.IsTrue(resCreate.Success && resGet.Success && resGet.Result != null);

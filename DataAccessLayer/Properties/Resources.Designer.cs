@@ -61,7 +61,7 @@ namespace Recodme.Rd.JadeRest.DataAccessLayer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Server=RECODME-JOAOJ\SQLEXPRESS;Database=JadeRestaurante;Trusted_Connection=true;.
+        ///   Looks up a localized string similar to Server=RECODME-AMARTIM\SQLEXPRESS;Database=JadeRestaurante;Trusted_Connection=true;.
         /// </summary>
         public static string ConnectionString {
             get {
@@ -70,7 +70,7 @@ namespace Recodme.Rd.JadeRest.DataAccessLayer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Server=RECODME-AMARTIM\SQLEXPRESS;Database=JadeRestaurante;.
+        ///   Looks up a localized string similar to Server=RECODME-AMARTIM\SQLEXPRESS;Database=JadeRestaurante;Trusted_Connection=true;.
         /// </summary>
         public static string ConnectionStringAntonio {
             get {
