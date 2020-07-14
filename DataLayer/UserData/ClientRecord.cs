@@ -35,7 +35,7 @@ namespace Recodme.Rd.JadeRest.DataLayer.UserData
         public Guid RestaurantId { get; set; }
         public virtual Restaurant Restaurant { get; set; }
 
-        //public virtual ICollection<Booking> Bookings { get; set; }
+        public virtual ICollection<Booking> Bookings { get; set; }
 
 
         public ClientRecord(DateTime registerDate, Guid personId, Guid restaurantId)

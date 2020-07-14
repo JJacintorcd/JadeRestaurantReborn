@@ -21,6 +21,9 @@ namespace Recodme.Rd.JadeRest.DataAccessLayer.Seeders
             var tl1 = new Title("Chef", "Sous Chef", "responsible for saucing all plates, i think...");
             var sr1 = new StaffRecord(DateTime.Parse("2020/05/05"), DateTime.Parse("2020/06/06"), pe1.Id, rs1.Id);
             var st1 = new StaffTitle(DateTime.Parse("2015/05/05"), DateTime.Parse("2020/05/05"), tl1.Id, sr1.Id);
+            var ds1 = new Dish("Couscous", dr1.Id);
+            var ml1 = new Meal("Lunch", "13h00", "16h00");
+            var bk1 = new Booking(DateTime.Parse("2015/05/05"), cr1.Id);
             
             _ctx.DietaryRestrictions.AddRange(dr1);
             _ctx.People.AddRange(pe1);
@@ -29,6 +32,9 @@ namespace Recodme.Rd.JadeRest.DataAccessLayer.Seeders
             _ctx.Titles.AddRange(tl1);
             _ctx.Restaurants.AddRange(rs1);
             _ctx.StaffTitles.AddRange(st1);
+            _ctx.Dishes.AddRange(ds1);
+            _ctx.Meals.AddRange(ml1);
+            _ctx.Bookings.AddRange(bk1);
             _ctx.SaveChanges();
         }
     }
