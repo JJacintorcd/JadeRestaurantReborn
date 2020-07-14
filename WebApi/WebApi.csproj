@@ -20,7 +20,6 @@
   <ItemGroup>
     <Folder Include="Controllers\Web\UserControllers\" />
     <Folder Include="Controllers\Web\RestaurantControllers\" />
-    <Folder Include="Views\MenuViews\DietaryRestrictions\" />
     <Folder Include="Views\RestaurantViews\Titles\" />
     <Folder Include="Views\RestaurantViews\StaffTitles\" />
     <Folder Include="Views\RestaurantViews\Restaurants\" />

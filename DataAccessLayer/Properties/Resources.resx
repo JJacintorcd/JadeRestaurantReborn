@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ConnectionString" xml:space="preserve">
-    <value>Data Source=SQL5063.site4now.net;Initial Catalog=DB_A6469F_dblol;User Id=DB_A6469F_dblol_admin;Password=Covfefe420</value>
+    <value>Server=RECODME-JOAOJ\SQLEXPRESS;Database=JadeRestaurante;Trusted_Connection=true;User=RECODME-JOAOJ\João Jacinto</value>
   </data>
   <data name="ConnectionStringAntonio" xml:space="preserve">
     <value>Server=RECODME-AMARTIM\SQLEXPRESS;Database=JadeRestaurante;Trusted_Connection=true;</value>

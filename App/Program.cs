@@ -4,6 +4,7 @@ using Recodme.Rd.JadeRest.DataAccessLayer.Contexts;
 using Recodme.Rd.JadeRest.DataLayer;
 using System;
 using Recodme.Rd.JadeRest.BusinessLayer.BObjects.RestaurantBO;
+using Recodme.Rd.JadeRest.DataAccessLayer.Seeders;
 
 namespace App
 {
@@ -16,6 +17,8 @@ namespace App
 
             //var bo = new RestaurantBusinessObject();
             //var res = bo.ListUnDeleted();
+
+            //RestaurantSeeder.SeedCountries();
 
 
         }

@@ -61,7 +61,7 @@ namespace Recodme.Rd.JadeRest.DataAccessLayer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Data Source=SQL5063.site4now.net;Initial Catalog=DB_A6469F_dblol;User Id=DB_A6469F_dblol_admin;Password=Covfefe420.
+        ///   Looks up a localized string similar to Server=RECODME-JOAOJ\SQLEXPRESS;Database=JadeRestaurante;Trusted_Connection=true;User=RECODME-JOAOJ\João Jacinto.
         /// </summary>
         public static string ConnectionString {
             get {
