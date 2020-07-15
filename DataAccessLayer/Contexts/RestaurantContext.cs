@@ -46,6 +46,9 @@ namespace Recodme.Rd.JadeRest.DataAccessLayer.Contexts
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Dish> Dishes { get; set; }
         public DbSet<Meal> Meals { get; set; }
+        public DbSet<Menu> Menus { get; set; }
+        public DbSet<Serving> Servings { get; set; }
+        public DbSet<Course> Courses { get; set; }
 
     }
 }

@@ -12,7 +12,7 @@ namespace Recodme.Rd.JadeRest.DataLayer.MenuData
         public Guid DietaryRestrictionId { get; set; }
         public virtual DietaryRestriction DietaryRestriction { get; set; }
 
-        //public virtual ICollection<Serving> Servings { get; set; }
+        public virtual ICollection<Serving> Servings { get; set; }
 
         public Dish(string name, Guid dietaryRestrictionId) : base(name) 
         {
