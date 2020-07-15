@@ -94,32 +94,26 @@ namespace Recodme.Rd.JadeRest.DataLayer.UserData
 
         }
 
-        //[ForeignKey("JadeUser")]
-        //public Guid UserId { get; set; }
-        //public virtual JadeUser JadeUser { get; set; }
-
         public virtual ICollection<StaffRecord> StaffRecords { get; set; }
         public virtual ICollection<ClientRecord> ClientRecords { get; set; }
 
 
-        public Person(long vatNumber, string firstName, string lastName, long phoneNumber, DateTime birthDate/*, Guid userId*/)
+        public Person(long vatNumber, string firstName, string lastName, long phoneNumber, DateTime birthDate)
         {
             _vatNumber = vatNumber;
             _firstName = firstName;
             _lastName = lastName;
             _phoneNumber = phoneNumber;
             _birthDate = birthDate;
-            //UserId = userId;
         }
 
-        public Person(Guid id, DateTime createdAt, DateTime updatedAt, bool isDeleted, long vatNumber, string firstName, string lastName, long phoneNumber, DateTime birthDate/*, Guid userId*/) : base(id, createdAt, updatedAt, isDeleted)
+        public Person(Guid id, DateTime createdAt, DateTime updatedAt, bool isDeleted, long vatNumber, string firstName, string lastName, long phoneNumber, DateTime birthDate) : base(id, createdAt, updatedAt, isDeleted)
         {
             _vatNumber = vatNumber;
             _firstName = firstName;
             _lastName = lastName;
             _phoneNumber = phoneNumber;
             _birthDate = birthDate;
-            //UserId = userId;
         }
     }
 }

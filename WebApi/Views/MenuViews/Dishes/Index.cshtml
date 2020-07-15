@@ -1,31 +1,28 @@
-﻿using Recodme.Rd.JadeRest.WebApi.Models.MenuViewModels
+﻿@using Recodme.Rd.JadeRest.WebApi.Models.MenuViewModels
 @model IEnumerable<DishViewModel>
-
-<h2>Dishes</h2>
-
+<h2>Dish</h2>
 <p>
     <a asp-action="Create">Create</a>
 </p>
-
-<div class="table-responsive">
-    <table class="table">
+<div class="table">
+    <table class="table table-hover table-responsive">
         <thead>
-            <tr>
-                <th></th>
-                <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <tr class="row ml-1">
+                <th class="col-3"></th>
+                <th class="col-3">@Html.DisplayNameFor(model => model.Name)</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var dish in Model)
             {
-                <tr>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@dish.Id">Edit</a>
-                        <a asp-action="Details" asp-route-id="@dish.Id">Details</a>
-                        <a asp-action="Delete" asp-route-id="@dish.Id">Delete</a>
-                    </td>
-                    <td>@Html.DisplayFor(x => dish.Name)</td>
-                </tr>
+            <tr class="row ml-1">
+                <td class="col-3">
+                    <a asp-action="Edit" asp-route-id="@dish.Id">Edit</a>
+                    <a asp-action="Details" asp-route-id="@dish.Id">Details</a>
+                    <a asp-action="Delete" asp-route-id="@dish.Id">Delete</a>
+                </td>
+                <td class="col-3">@Html.DisplayFor(x => dish.Name)</td>
+            </tr>
             }
         </tbody>
     </table>

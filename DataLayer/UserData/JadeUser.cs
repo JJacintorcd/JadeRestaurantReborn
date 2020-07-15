@@ -16,10 +16,9 @@ namespace Recodme.Rd.JadeRest.DataLayer.UserData
         public Guid PersonId { get; set; }
         public virtual Person Person { get; set; }
 
-        public JadeUser(Guid personId)
+        public JadeUser(Guid id)
         {
-            Id = Guid.NewGuid();
-            PersonId = personId;
+            Id = id;
         }
     }
 }

@@ -12,15 +12,27 @@ namespace Recodme.Rd.JadeRest.WebApi.Controllers.Web.MenuControllers
     public class DishesController : Controller
     {
         private readonly DishBusinessObject _bo = new DishBusinessObject();
+        private readonly DietaryRestrictionBusinessObject _drbo = new DietaryRestrictionBusinessObject();
+
         public async Task<IActionResult> Index()
         {
             var listOperation = await _bo.ListUnDeletedAsync();
+            if (!listOperation.Success) return View("Error", new ErrorViewModel() { RequestId = listOperation.Exception.Message });
+            var drlistOperation = await _drbo.ListUnDeletedAsync();
             if (!listOperation.Success) return View("Error", new ErrorViewModel() { RequestId = listOperation.Exception.Message });
             var lst = new List<DishViewModel>();
             foreach (var item in listOperation.Result)
             {
                 lst.Add(DishViewModel.Parse(item));
             }
+           
+            var drlst = new List<DietaryRestrictionViewModel>();
+            foreach(var item in drlistOperation.Result)
+            {
+                drlst.Add(DietaryRestrictionViewModel.Parse(item));
+            }
+
+            ViewBag.DietaryRestrictions = drlst;
             return View(lst);
         }
 

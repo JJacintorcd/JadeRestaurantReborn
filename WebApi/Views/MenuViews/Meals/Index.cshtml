@@ -1,0 +1,71 @@
+﻿@using Recodme.Rd.JadeRest.WebApi.Models.MenuViewModels
+@model IEnumerable<MealViewModel>
+<h2>Meal</h2>
+<p>
+    <a asp-action="Create">Create</a>
+</p>
+<div class="table">
+    <table class="table table-hover table-responsive">
+        <thead>
+            <tr class="row ml-1">
+                <th class="col-3"></th>
+                <th class="col-3">@Html.DisplayNameFor(model => model.Name)</th>
+                <th class="col-3">@Html.DisplayNameFor(model => model.StartingHours)</th>
+                <th class="col-3">@Html.DisplayNameFor(model => model.EndingHours)</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var meal in Model)
+            {
+            <tr class="row ml-1">
+                <td class="col-3">
+                    <a asp-action="Edit" asp-route-id="@meal.Id">Edit</a>
+                    <a asp-action="Details" asp-route-id="@meal.Id">fa fas-</a>
+                    <a asp-action="Delete" asp-route-id="@meal.Id">Delete</a>
+                </td>
+                <td class="col-3">@Html.DisplayFor(x => meal.Name)</td>
+                <td class="col-3">@Html.DisplayFor(x => meal.StartingHours)</td>
+                <td class="col-3">@Html.DisplayFor(x => meal.EndingHours)</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+@*using Recodme.Rd.JadeRest.WebApi.Models.MenuViewModels
+    @model IEnumerable<MealViewModel>
+
+    <h2>Meals</h2>
+
+    <p>
+        <a asp-action="Create">Create</a>
+    </p>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>@Html.DisplayNameFor(model => model.Name)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var meal in Model)
+                {
+                    <tr>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@meal.Id">Edit</a>
+                            <a asp-action="Details" asp-route-id="@meal.Id">Details</a>
+                            <a asp-action="Delete" asp-route-id="@meal.Id">Delete</a>
+                        </td>
+                        <td>@Html.DisplayFor(x => meal.Name)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>*@
