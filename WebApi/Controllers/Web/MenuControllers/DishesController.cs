@@ -9,18 +9,17 @@ using Recodme.Rd.JadeRest.WebApi.Models.MenuViewModels;
 namespace Recodme.Rd.JadeRest.WebApi.Controllers.Web.MenuControllers
 {
     [ApiExplorerSettings(IgnoreApi = true)]
-    public class DietaryRestrictionsController : Controller
+    public class DishesController : Controller
     {
-        private readonly DietaryRestrictionBusinessObject _bo = new DietaryRestrictionBusinessObject();
-
+        private readonly DishBusinessObject _bo = new DishBusinessObject();
         public async Task<IActionResult> Index()
         {
             var listOperation = await _bo.ListUnDeletedAsync();
-            if (!listOperation.Success) return View("Error", listOperation.Exception.Message);
-            var lst = new List<DietaryRestrictionViewModel>();
-            foreach(var item in listOperation.Result)
+            if (!listOperation.Success) return View("Error", new ErrorViewModel() { RequestId = listOperation.Exception.Message });
+            var lst = new List<DishViewModel>();
+            foreach (var item in listOperation.Result)
             {
-                lst.Add(DietaryRestrictionViewModel.Parse(item));
+                lst.Add(DishViewModel.Parse(item));
             }
             return View(lst);
         }
@@ -29,9 +28,9 @@ namespace Recodme.Rd.JadeRest.WebApi.Controllers.Web.MenuControllers
         {
             if (id == null) return NotFound();
             var getOperation = await _bo.ReadAsync((Guid)id);
-            if(!getOperation.Success) return View("Error", getOperation.Exception.Message);
+            if (!getOperation.Success) return View("Error", new ErrorViewModel() { RequestId = getOperation.Exception.Message });
             if (getOperation.Result == null) return NotFound();
-            var vm = DietaryRestrictionViewModel.Parse(getOperation.Result);
+            var vm = DishViewModel.Parse(getOperation.Result);
             return View(vm);
         }
 
@@ -42,12 +41,12 @@ namespace Recodme.Rd.JadeRest.WebApi.Controllers.Web.MenuControllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name")]DietaryRestrictionViewModel vm)
+        public async Task<IActionResult> Create([Bind("Name")]DishViewModel vm)
         {
             if (ModelState.IsValid)
             {
-                var dr = vm.ToDietaryRestriction();
-                var createOperation = await _bo.CreateAsync(dr);
+                var ds = vm.ToDish();
+                var createOperation = await _bo.CreateAsync(ds);
                 if (!createOperation.Success) return View("Error", new ErrorViewModel() { RequestId = createOperation.Exception.Message });
                 return RedirectToAction(nameof(Index));
             }
@@ -58,9 +57,9 @@ namespace Recodme.Rd.JadeRest.WebApi.Controllers.Web.MenuControllers
         {
             if (id == null) return NotFound();
             var getOperation = await _bo.ReadAsync((Guid)id);
-            if (!getOperation.Success) return View("Error", getOperation.Exception.Message);
+            if (!getOperation.Success) return View("Error", new ErrorViewModel() { RequestId = getOperation.Exception.Message });
             if (getOperation.Result == null) return NotFound();
-            var vm = DietaryRestrictionViewModel.Parse(getOperation.Result);
+            var vm = DishViewModel.Parse(getOperation.Result);
             return View(vm);
         }
 
@@ -71,12 +70,12 @@ namespace Recodme.Rd.JadeRest.WebApi.Controllers.Web.MenuControllers
             if (ModelState.IsValid)
             {
                 var getOperation = await _bo.ReadAsync(id);
-                if (!getOperation.Success) return View("Error", getOperation.Exception.Message);
+                if (!getOperation.Success) return View("Error", new ErrorViewModel() { RequestId = getOperation.Exception.Message });
                 if (getOperation.Result == null) return NotFound();
                 var result = getOperation.Result;
                 result.Name = vm.Name;
                 var updateOperation = await _bo.UpdateAsync(result);
-                if (!updateOperation.Success) return View("Error", getOperation.Exception.Message);
+                if (!updateOperation.Success) return View("Error", new ErrorViewModel() { RequestId = getOperation.Exception.Message });
             }
             return RedirectToAction(nameof(Index));
         }
@@ -85,8 +84,8 @@ namespace Recodme.Rd.JadeRest.WebApi.Controllers.Web.MenuControllers
         {
             if (id == null) return NotFound();
             var deleteOperation = await _bo.DeleteAsync((Guid)id);
-            if(!deleteOperation.Success) return View("Error", deleteOperation.Exception.Message);
+            if (!deleteOperation.Success) return View("Error", new ErrorViewModel() { RequestId = deleteOperation.Exception.Message });
             return RedirectToAction(nameof(Index));
         }
-    }
+    }   
 }
