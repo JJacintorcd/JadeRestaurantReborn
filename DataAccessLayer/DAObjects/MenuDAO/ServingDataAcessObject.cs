@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Recodme.Rd.JadeRest.DataAccessLayer.DAObjects.MenuDAO
 {
-    public class ServingDataAcessObject
+    public class ServingDataAccessObject
     {
         private RestaurantContext _context;
 
-        public ServingDataAcessObject()
+        public ServingDataAccessObject()
         {
             _context = new RestaurantContext();
         }
